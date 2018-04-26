@@ -1,15 +1,9 @@
 package com.itii.planning.gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JRadioButtonMenuItem;
 
 /**
  * 
@@ -45,6 +39,7 @@ public class MainWindow extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
+    //TODO : create javadoc
     private void CreateMenuBar()
     {
         setTitle("Menu Example");
@@ -79,10 +74,6 @@ public class MainWindow extends JFrame
         JMenuItem WeeksAction = new JMenuItem("Editer");
         JMenuItem MonthAction = new JMenuItem("Marquer");
 
-        
-        
-        
-        
         //what is in the "Fichier" menu
         fileMenu.add(QuitAction);
         
