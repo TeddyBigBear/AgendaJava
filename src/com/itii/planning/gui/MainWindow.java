@@ -23,6 +23,7 @@ public class MainWindow extends JFrame
         return instance;
     }
 
+    //TODO JavaDoc
     private MainWindow()
     {
         CreateMenuBar();//la creation du menu bar doit se faire avant le initialize
@@ -39,7 +40,7 @@ public class MainWindow extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-    //TODO : create javadoc
+    //TODO javadoc
     private void CreateMenuBar()
     {
         setTitle("Menu Example");
