@@ -7,8 +7,8 @@ import javax.swing.JMenuItem;
 
 /**
  * 
- * @author Léa-Groupe E
- *
+ * @author Léa - Théodore - Groupe E
+ *TODO Fill javadoc
  */
 public class MainWindow extends JFrame
 {
@@ -30,6 +30,7 @@ public class MainWindow extends JFrame
         initialize();
     }
 
+    //TODO Javadoc
     private void initialize()
     {
 
