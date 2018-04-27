@@ -112,8 +112,9 @@ public class MainWindow extends JFrame
     {
         // these are the components we need.
 
-        JPanel RightPanel; // container panel for the top
         JPanel LeftPanel; // container panel for the bottom
+        JPanel RightPanel; // container panel for the top
+
         JButton button;
 
         RightPanel = new JPanel(); // our top component
@@ -123,22 +124,45 @@ public class MainWindow extends JFrame
 
         setPreferredSize(new Dimension(200, 200)); // let's open the window with
         getContentPane().setLayout(new GridLayout()); // the default GridLayout
-        
-        LeftPanel.setLayout(new BoxLayout(LeftPanel, BoxLayout.X_AXIS)); // BoxLayout.Y_AXIS
-        LeftPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        
-        RightPanel.setLayout(new BoxLayout(RightPanel, BoxLayout.X_AXIS)); // BoxLayout.Y_AXIS
+
+        RightPanel.setSize(200, 40);
+        RightPanel.setLayout(new GridLayout(5, 1)); // BoxLayout.Y_AXIS
         RightPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         
-        LeftPanel.add(button);
+        
+        LeftPanel.setLayout(new GridLayout(1, 1)); // BoxLayout.Y_AXIS
+        LeftPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        
+        
+        RightPanel.add(button);
         
         //RightPanel.setBackground(Color.ORANGE);   
         //LeftPanel.setBackground(Color.RED);
         
+        getContentPane().add(LeftPanel);   
+        getContentPane().add(RightPanel); 
         
-        getContentPane().add(RightPanel);     
-        getContentPane().add(LeftPanel);     
+        /*setSize(500,400);
+        setVisible(true);
+
+    //declaration container
+        getContentPane();
+    
+    
+        JPanel menu =new JPanel();
+        JPanel MessageList =new JPanel();
+        JPanel about=new JPanel();
+    
+        menu.setBackground(Color.blue);
+        MessageList.setBackground(Color.cyan);
+        about.setBackground(Color.cyan);
         
+        //--------Button---------------------
+        JButton button1=new JButton("button1");
+        JButton button2=new JButton("Button2");
+    
+        menu.add(button1);
+        menu.add(button2);*/
       
     }
 }
