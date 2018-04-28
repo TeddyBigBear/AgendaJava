@@ -75,14 +75,14 @@ public class MainWindow extends JFrame
         JMenuItem QuitAction = new JMenuItem("Quitter");
 
         // what is in the "Edition" menu
-        JMenuItem CreateAction = new JMenuItem("Créer");
+        JMenuItem CreateAction = new JMenuItem("Crï¿½er");
         JMenuItem EditAction = new JMenuItem("Editer");
         JMenuItem MarkAction = new JMenuItem("Marquer");
         JMenuItem DuplicateAction = new JMenuItem("Dupliquer");
         JMenuItem DeleteAction = new JMenuItem("Supprimer");
 
         // what is in the "Vue" menu
-        JMenuItem ListAction = new JMenuItem("Créer");
+        JMenuItem ListAction = new JMenuItem("Crï¿½er");
         JMenuItem WeeksAction = new JMenuItem("Editer");
         JMenuItem MonthAction = new JMenuItem("Marquer");
 
@@ -134,7 +134,7 @@ public class MainWindow extends JFrame
         panel_Right.setLayout(new GridLayout(5, 1));
         //ButtonPanel.setLayout(new GridLayout(5, 1));
         
-        JButton btnCreate = new JButton("Crée");
+        JButton btnCreate = new JButton("Crï¿½e");
         panel_Right.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
