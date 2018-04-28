@@ -17,6 +17,12 @@ import javax.swing.JScrollPane;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.ScrollPane;
+import java.awt.Font;
+import javax.swing.JTextPane;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.JLayeredPane;
 
 /**
  * 
@@ -48,7 +54,7 @@ public class MainWindow extends JFrame
     // TODO Javadoc
     private void initialize()
     {
-        this.setSize(900, 500);
+        this.setSize(737, 500);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.validate();
@@ -112,32 +118,66 @@ public class MainWindow extends JFrame
     // TODO Javadoc
     private void CreatePanels()
     {
-        //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
-        getContentPane().setLayout(new BorderLayout());
+        getContentPane().setLayout(new BorderLayout()); // TODO put getcontent plane in a name
         
+        
+        //Le panel principal
         JPanel panel_Left = new JPanel();
         getContentPane().add(panel_Left, BorderLayout.CENTER);
         panel_Left.setLayout(null);
         
+        
+        //Les elements du panel principal
         textField = new JTextField();
-        textField.setBounds(20, 5, 358, 20);
+        textField.setBounds(20, 11, 358, 20);
+        textField.setColumns(50);
         panel_Left.add(textField);
-        textField.setColumns(44);
-        
+
         JComboBox comboBox = new JComboBox();
-        comboBox.setBounds(400, 5, 28, 20);
+        comboBox.setBounds(419, 11, 205, 20);
         panel_Left.add(comboBox);
-        
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(555, 62, -533, 367);
-        panel_Left.add(scrollPane);
-        
+
+
+        //TODO ajouter les troins panel avec les trois vues differentes
+        ScrollPane panel_Vue_Liste = new ScrollPane();
+        panel_Vue_Liste.setBounds(20, 41, 604, 388);
+        panel_Left.add(panel_Vue_Liste);
+        panel_Vue_Liste.setBackground(Color.blue);
+
+        ScrollPane panel_Vue_Semaine = new ScrollPane();
+        panel_Vue_Semaine.setBounds(20, 41, 604, 388);
+        panel_Left.add(panel_Vue_Semaine);
+        panel_Vue_Semaine.setBackground(Color.red);
+
+        ScrollPane panel_Vue_Mois = new ScrollPane();
+        panel_Vue_Mois.setBounds(20, 41, 604, 388);
+        panel_Left.add(panel_Vue_Mois);
+        panel_Vue_Mois.setBackground(Color.black);
+
+        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane.setBounds(20, 41, 604, 388);
+        panel_Left.add(layeredPane);
+
+        layeredPane.add(panel_Vue_Liste, new ScrollPane());
+        layeredPane.add(panel_Vue_Mois, new ScrollPane());
+        layeredPane.add(panel_Vue_Semaine, new ScrollPane());
+
+        layeredPane.moveToFront(panel_Vue_Semaine);
+
+        JTextPane txtpnVue = new JTextPane();
+        txtpnVue.setBackground(SystemColor.menu); // TODO Globalize color variable
+        txtpnVue.setText("Vue :");
+        txtpnVue.setBounds(378, 11, 42, 20);
+        panel_Left.add(txtpnVue);
+
+        //Le panel de droite
         JPanel panel_Button = new JPanel();
         getContentPane().add(panel_Button, BorderLayout.EAST);
         panel_Button.setLayout(new GridLayout(5, 1));
+
         
-        
-        JButton btnCreate = new JButton("Cr�e");
+        //Les elements du panel de droite
+        JButton btnCreate = new JButton("Cr�er");
         panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
@@ -151,5 +191,6 @@ public class MainWindow extends JFrame
         
         JButton btnDelete = new JButton("Supprimer");
         panel_Button.add(btnDelete);
+        
     }
 }
