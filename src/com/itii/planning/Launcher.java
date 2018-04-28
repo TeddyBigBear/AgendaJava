@@ -5,16 +5,15 @@ import com.itii.planning.gui.SecondWindow;
 
 /**
  * 
- * @author Léa
+ * @author Lï¿½a
  *
  */
 public class Launcher
 {
     public static void main(String[] args)
     {
-        SecondWindow.getInstance();
-        MainWindow.getInstance();
+     SecondWindow.getInstance();
+     MainWindow.getInstance();
 
     }
-    
 }

@@ -141,17 +141,14 @@ public class MainWindow extends JFrame
         //TODO ajouter les troins panel avec les trois vues differentes
         ScrollPane panel_Vue_Liste = new ScrollPane();
         panel_Vue_Liste.setBounds(20, 41, 604, 388);
-        panel_Left.add(panel_Vue_Liste);
         panel_Vue_Liste.setBackground(Color.blue);
 
         ScrollPane panel_Vue_Semaine = new ScrollPane();
         panel_Vue_Semaine.setBounds(20, 41, 604, 388);
-        panel_Left.add(panel_Vue_Semaine);
         panel_Vue_Semaine.setBackground(Color.red);
 
         ScrollPane panel_Vue_Mois = new ScrollPane();
         panel_Vue_Mois.setBounds(20, 41, 604, 388);
-        panel_Left.add(panel_Vue_Mois);
         panel_Vue_Mois.setBackground(Color.black);
 
         JLayeredPane layeredPane = new JLayeredPane();
