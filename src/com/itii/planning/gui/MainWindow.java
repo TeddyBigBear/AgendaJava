@@ -1,7 +1,6 @@
 package com.itii.planning.gui;
 
 
-import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -11,15 +10,9 @@ import javax.swing.JComboBox;
 import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.FlowLayout;
-import java.awt.ScrollPane;
+import java.awt.GridLayout;
 import javax.swing.JTextField;
-import javax.swing.JSeparator;
-import javax.swing.JEditorPane;
-import javax.swing.SpringLayout;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 
 /**
  * 
@@ -50,16 +43,12 @@ public class MainWindow extends JFrame
     // TODO Javadoc
     private void initialize()
     {
-
         this.setSize(900, 500);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.validate();
         this.repaint();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-
     }
 
     // TODO javadoc
@@ -86,14 +75,14 @@ public class MainWindow extends JFrame
         JMenuItem QuitAction = new JMenuItem("Quitter");
 
         // what is in the "Edition" menu
-        JMenuItem CreateAction = new JMenuItem("Crï¿½er");
+        JMenuItem CreateAction = new JMenuItem("Créer");
         JMenuItem EditAction = new JMenuItem("Editer");
         JMenuItem MarkAction = new JMenuItem("Marquer");
         JMenuItem DuplicateAction = new JMenuItem("Dupliquer");
         JMenuItem DeleteAction = new JMenuItem("Supprimer");
 
         // what is in the "Vue" menu
-        JMenuItem ListAction = new JMenuItem("Crï¿½er");
+        JMenuItem ListAction = new JMenuItem("Créer");
         JMenuItem WeeksAction = new JMenuItem("Editer");
         JMenuItem MonthAction = new JMenuItem("Marquer");
 
@@ -118,38 +107,46 @@ public class MainWindow extends JFrame
     // TODO Javadoc
     private void CreatePanels()
     {
-        getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+        //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
+        getContentPane().setLayout(new GridLayout(1, 2));
         
-        JPanel panel = new JPanel();
-        panel.setAlignmentY(Component.TOP_ALIGNMENT);
-        getContentPane().add(panel);
-        panel.setLayout(null);
+        JPanel panel_Left = new JPanel();
+        panel_Left.setAlignmentY(Component.TOP_ALIGNMENT);
+        getContentPane().add(panel_Left);
+        panel_Left.setLayout(null);
         
         textField = new JTextField();
         textField.setBounds(20, 5, 358, 20);
-        panel.add(textField);
+        panel_Left.add(textField);
         textField.setColumns(44);
         
         JComboBox comboBox = new JComboBox();
         comboBox.setBounds(400, 5, 28, 20);
-        panel.add(comboBox);
+        panel_Left.add(comboBox);
         
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(555, 62, -533, 367);
-        panel.add(scrollPane);
+        panel_Left.add(scrollPane);
         
-        JPanel panel_1 = new JPanel();
-        panel_1.setAlignmentY(Component.TOP_ALIGNMENT);
-        getContentPane().add(panel_1);
-        panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
+        JPanel panel_Right = new JPanel();
+        panel_Right.setAlignmentY(Component.TOP_ALIGNMENT);
+        getContentPane().add(panel_Right);
+        panel_Right.setLayout(new GridLayout(5, 1));
+        //ButtonPanel.setLayout(new GridLayout(5, 1));
         
-        JButton btnNewButton = new JButton("New button");
-        panel_1.add(btnNewButton);
+        JButton btnCreate = new JButton("Crée");
+        panel_Right.add(btnCreate);
         
-        JButton btnNewButton_1 = new JButton("New button");
-        panel_1.add(btnNewButton_1);
+        JButton btnEdit = new JButton("Editer");
+        panel_Right.add(btnEdit);
         
-        JButton btnNewButton_2 = new JButton("New button");
-        panel_1.add(btnNewButton_2);
+        JButton btnMark = new JButton("Marquer");
+        panel_Right.add(btnMark);
+        
+        JButton btnDuplicate = new JButton("Dupliquer");
+        panel_Right.add(btnDuplicate);
+        
+        JButton btnDelete = new JButton("Supprimer");
+        panel_Right.add(btnDelete);
     }
 }
