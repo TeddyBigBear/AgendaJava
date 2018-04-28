@@ -23,7 +23,7 @@ import javax.swing.SwingConstants;
 
 /**
  * 
- * @author Léa - Théodore - Groupe E TODO Fill javadoc
+ * @author Lï¿½a - Thï¿½odore - Groupe E TODO Fill javadoc
  */
 public class MainWindow extends JFrame
 {
@@ -86,14 +86,14 @@ public class MainWindow extends JFrame
         JMenuItem QuitAction = new JMenuItem("Quitter");
 
         // what is in the "Edition" menu
-        JMenuItem CreateAction = new JMenuItem("Créer");
+        JMenuItem CreateAction = new JMenuItem("Crï¿½er");
         JMenuItem EditAction = new JMenuItem("Editer");
         JMenuItem MarkAction = new JMenuItem("Marquer");
         JMenuItem DuplicateAction = new JMenuItem("Dupliquer");
         JMenuItem DeleteAction = new JMenuItem("Supprimer");
 
         // what is in the "Vue" menu
-        JMenuItem ListAction = new JMenuItem("Créer");
+        JMenuItem ListAction = new JMenuItem("Crï¿½er");
         JMenuItem WeeksAction = new JMenuItem("Editer");
         JMenuItem MonthAction = new JMenuItem("Marquer");
 
