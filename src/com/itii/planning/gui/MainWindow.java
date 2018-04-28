@@ -7,7 +7,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
+
+import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.awt.GridLayout;
@@ -16,7 +20,8 @@ import javax.swing.JButton;
 
 /**
  * 
- * @author Lï¿½a - Thï¿½odore - Groupe E TODO Fill javadoc
+ * @author Léa - Théodore - Groupe E 
+ * TODO Fill javadoc
  */
 public class MainWindow extends JFrame
 {
@@ -108,11 +113,10 @@ public class MainWindow extends JFrame
     private void CreatePanels()
     {
         //getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
-        getContentPane().setLayout(new GridLayout(1, 2));
+        getContentPane().setLayout(new BorderLayout());
         
         JPanel panel_Left = new JPanel();
-        panel_Left.setAlignmentY(Component.TOP_ALIGNMENT);
-        getContentPane().add(panel_Left);
+        getContentPane().add(panel_Left, BorderLayout.CENTER);
         panel_Left.setLayout(null);
         
         textField = new JTextField();
@@ -128,25 +132,24 @@ public class MainWindow extends JFrame
         scrollPane.setBounds(555, 62, -533, 367);
         panel_Left.add(scrollPane);
         
-        JPanel panel_Right = new JPanel();
-        panel_Right.setAlignmentY(Component.TOP_ALIGNMENT);
-        getContentPane().add(panel_Right);
-        panel_Right.setLayout(new GridLayout(5, 1));
-        //ButtonPanel.setLayout(new GridLayout(5, 1));
+        JPanel panel_Button = new JPanel();
+        getContentPane().add(panel_Button, BorderLayout.EAST);
+        panel_Button.setLayout(new GridLayout(5, 1));
+        
         
         JButton btnCreate = new JButton("Crée");
-        panel_Right.add(btnCreate);
+        panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
-        panel_Right.add(btnEdit);
+        panel_Button.add(btnEdit);
         
         JButton btnMark = new JButton("Marquer");
-        panel_Right.add(btnMark);
+        panel_Button.add(btnMark);
         
         JButton btnDuplicate = new JButton("Dupliquer");
-        panel_Right.add(btnDuplicate);
+        panel_Button.add(btnDuplicate);
         
         JButton btnDelete = new JButton("Supprimer");
-        panel_Right.add(btnDelete);
+        panel_Button.add(btnDelete);
     }
 }
