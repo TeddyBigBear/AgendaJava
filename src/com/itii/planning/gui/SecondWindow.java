@@ -1,4 +1,5 @@
 package com.itii.planning.gui;
+import com.itii.planning.gui.CalendarPanel;
 
 
 import java.awt.Dimension;
@@ -48,6 +49,7 @@ public class SecondWindow extends JFrame
     private SecondWindow()
     {
         createPanel();
+        createCalendar();
         initialize();
   
     }
@@ -96,13 +98,7 @@ public class SecondWindow extends JFrame
         label2.setText("Détails : ");
         label2.setBounds(5, 150, 200, 40);
         panel_Left.add(label2);
-        
-        
-        
-        
-        
-      
-        
+       
         
         panel_Left.setAlignmentY(Component.TOP_ALIGNMENT);
         getContentPane().add(panel_Left);
@@ -111,5 +107,19 @@ public class SecondWindow extends JFrame
         textField.setFont(new Font("Sylfaen", Font.PLAIN,22));
         textField.setBounds(200, 50, 400, 40);
         panel_Left.add(textField);
+    }
+
+
+    private void createCalendar(){
+    
+        CalendarPanel calendar= new CalendarPanel();
+        calendar.setBounds(500, 50, 20, 40);
+        getContentPane().setLayout(new GridLayout(1,1));
+        JPanel panel_Right = new JPanel();
+        panel_Right.setAlignmentY(Component.TOP_ALIGNMENT);
+        getContentPane().add(panel_Right);
+        panel_Right.add(calendar);
+        
+        
     }
 }

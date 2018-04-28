@@ -1,6 +1,6 @@
 package com.itii.planning;
 
-//import com.itii.planning.gui.MainWindow;
+import com.itii.planning.gui.MainWindow;
 import com.itii.planning.gui.SecondWindow;
 
 /**
@@ -13,7 +13,7 @@ public class Launcher
     public static void main(String[] args)
     {
         SecondWindow.getInstance();
-    // MainWindow.getInstance();
+        MainWindow.getInstance();
 
     }
     
