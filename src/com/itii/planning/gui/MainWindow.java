@@ -5,20 +5,15 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.ScrollPane;
-import java.awt.Font;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -118,7 +113,8 @@ public class MainWindow extends JFrame
     // TODO Javadoc
     private void CreatePanels()
     {
-        getContentPane().setLayout(new BorderLayout()); // TODO put getcontent plane in a name
+        
+        getContentPane().setLayout(new BorderLayout()); // TODO put getContent plane in a name
         
         
         //Le panel principal
@@ -136,9 +132,9 @@ public class MainWindow extends JFrame
         JComboBox comboBox = new JComboBox();
         comboBox.setBounds(419, 11, 205, 20);
         panel_Left.add(comboBox);
+        
 
-
-        //TODO ajouter les troins panel avec les trois vues differentes
+        //TODO ajouter les trois panel avec les trois vues differentes
         ScrollPane panel_Vue_Liste = new ScrollPane();
         panel_Vue_Liste.setBounds(20, 41, 604, 388);
         panel_Vue_Liste.setBackground(Color.blue);
@@ -159,14 +155,15 @@ public class MainWindow extends JFrame
         layeredPane.add(panel_Vue_Mois, new ScrollPane());
         layeredPane.add(panel_Vue_Semaine, new ScrollPane());
 
-        layeredPane.moveToFront(panel_Vue_Semaine);
+        layeredPane.moveToFront(panel_Vue_Mois);
 
         JTextPane txtpnVue = new JTextPane();
         txtpnVue.setBackground(SystemColor.menu); // TODO Globalize color variable
         txtpnVue.setText("Vue :");
         txtpnVue.setBounds(378, 11, 42, 20);
         panel_Left.add(txtpnVue);
-
+     
+        
         //Le panel de droite
         JPanel panel_Button = new JPanel();
         getContentPane().add(panel_Button, BorderLayout.EAST);
@@ -174,7 +171,7 @@ public class MainWindow extends JFrame
 
         
         //Les elements du panel de droite
-        JButton btnCreate = new JButton("Crï¿½er");
+        JButton btnCreate = new JButton("Créer");
         panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");

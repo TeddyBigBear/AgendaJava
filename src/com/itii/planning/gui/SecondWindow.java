@@ -2,31 +2,15 @@ package com.itii.planning.gui;
 import com.itii.planning.gui.CalendarPanel;
 
 
-import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.BoxLayout;
-import javax.swing.JComboBox;
 import java.awt.Component;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.ScrollPane;
 import java.awt.SystemColor;
 
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.JSeparator;
-import javax.swing.JEditorPane;
-import javax.swing.SpringLayout;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 
 /**
  * 
@@ -113,7 +97,7 @@ public class SecondWindow extends JFrame
     private void createCalendar(){
     
         CalendarPanel calendar= new CalendarPanel();
-        calendar.setBounds(500, 50, 20, 40);
+       // calendar.setBounds(500, 50, 20, 40);
         getContentPane().setLayout(new GridLayout(1,1));
         JPanel panel_Right = new JPanel();
         panel_Right.setAlignmentY(Component.TOP_ALIGNMENT);
