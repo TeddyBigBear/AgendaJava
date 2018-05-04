@@ -10,17 +10,24 @@ import javax.swing.JComboBox;
 import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.GridLayout;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.ScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.ListSelectionModel;
+
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLayeredPane;
+import javax.swing.JList;
 
 /**
  * 
@@ -176,7 +183,7 @@ public class MainWindow extends JFrame
 
         
         //This is the default panel
-        layeredPane.moveToFront(panel_Vue_Semaine);
+        layeredPane.moveToFront(panel_Vue_Liste);
         
         comboBoxView.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent changedcomboboxItem) {
@@ -196,7 +203,10 @@ public class MainWindow extends JFrame
                 default:
                     layeredPane.moveToFront(panel_Vue_Mois);
                     break;
+                    
                 }
+                layeredPane.revalidate();
+                layeredPane.repaint();
             }
         });
         
@@ -225,6 +235,28 @@ public class MainWindow extends JFrame
         ScrollPane panel_Vue_Liste = new ScrollPane();
         panel_Vue_Liste.setBounds(10, 10, 594, 378);
         panel_Vue_Liste.setBackground(Color.blue);
+
+
+        String[] numberTest = {"1", "2", "3", "4"};
+        
+        //JList, list
+        JList list = new JList(numberTest);
+        
+        
+        //list properties
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.setLayoutOrientation(JList.VERTICAL);
+        list.setVisibleRowCount(3);
+        list.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
+
+        //Add JScrollPane to list   [What I need help with, its not working]
+        JScrollPane listScroller = new JScrollPane(list);
+        listScroller.setPreferredSize(new Dimension(250, 80));
+
+        //Setbounds, add list and repaint frame
+        listScroller.setBounds(25, 25, 100, 100);
+        panel_Vue_Liste.add(listScroller);
+
         layeredPane.add(panel_Vue_Liste, new ScrollPane());
         return panel_Vue_Liste;
     }
