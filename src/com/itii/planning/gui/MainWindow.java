@@ -28,6 +28,7 @@ public class MainWindow extends JFrame
 {
     private static MainWindow instance = null;
     private JTextField textField;
+    private static enum Views {Liste, Mois, Semaine}
 
     public static MainWindow getInstance()
     {
@@ -135,6 +136,8 @@ public class MainWindow extends JFrame
         rightPanelButtonFill(panel_Button);
         
     }
+    
+ 
 
     private void fillLeftPanel(JPanel panel_Left)
     {
@@ -146,8 +149,7 @@ public class MainWindow extends JFrame
         
         
         //Create and fill Combobox
-        String[] comboBoxArray = {"Liste","Mois","Semaine"};
-        JComboBox comboBoxView = new JComboBox(comboBoxArray);
+        JComboBox<Views> comboBoxView = new JComboBox<Views>(Views.values());
         comboBoxView.setBounds(419, 11, 205, 20);
         panel_Left.add(comboBoxView);  
         
@@ -168,6 +170,8 @@ public class MainWindow extends JFrame
         ScrollPane panel_Vue_Semaine = createVueSemaine(layeredPane);
         ScrollPane panel_Vue_Mois = createVueMois(layeredPane);
 
+        
+        //TODO : Case
         layeredPane.moveToFront(panel_Vue_Semaine);
     }
 
