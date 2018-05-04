@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import java.awt.GridLayout;
 import javax.swing.JTextField;
@@ -236,18 +237,21 @@ public class MainWindow extends JFrame
         panel_Vue_Liste.setBounds(10, 10, 594, 378);
         panel_Vue_Liste.setBackground(Color.blue);
 
-
-        String[] numberTest = {"1", "2", "3", "4"};
+        String[] columnNames = {"Nom de la tâche",
+                "Date dûe",
+                "Détails"};
+        
+        Object[][] data = {
+                {"TP #1", "04/05/2018", "terminer le TP"}
+            };
         
         //JList, list
-        JList list = new JList(numberTest);
-        
+        JTable list = new JTable(data, columnNames);
         
         //list properties
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list.setLayoutOrientation(JList.VERTICAL);
-        list.setVisibleRowCount(3);
         list.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
+        list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         //Add JScrollPane to list   [What I need help with, its not working]
         JScrollPane listScroller = new JScrollPane(list);
