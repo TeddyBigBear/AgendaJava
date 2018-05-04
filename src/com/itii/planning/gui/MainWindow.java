@@ -17,6 +17,9 @@ import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLayeredPane;
 
 /**
@@ -151,7 +154,8 @@ public class MainWindow extends JFrame
         //Create and fill Combobox
         JComboBox<Views> comboBoxView = new JComboBox<Views>(Views.values());
         comboBoxView.setBounds(419, 11, 205, 20);
-        panel_Left.add(comboBoxView);  
+        panel_Left.add(comboBoxView);
+        
         
         
         JTextPane txtpnVue = new JTextPane();
@@ -171,8 +175,31 @@ public class MainWindow extends JFrame
         ScrollPane panel_Vue_Mois = createVueMois(layeredPane);
 
         
-        //TODO : Case
+        //This is the default panel
         layeredPane.moveToFront(panel_Vue_Semaine);
+        
+        comboBoxView.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent changedcomboboxItem) {
+                
+                switch (comboBoxView.getSelectedIndex())
+                {
+                case 0:
+                    layeredPane.moveToFront(panel_Vue_Liste);
+                    break;
+                case 1:
+                    layeredPane.moveToFront(panel_Vue_Semaine);
+                    break;
+                case 2:
+                    layeredPane.moveToFront(panel_Vue_Mois);
+                    break;
+
+                default:
+                    layeredPane.moveToFront(panel_Vue_Mois);
+                    break;
+                }
+            }
+        });
+        
     }
 
     private ScrollPane createVueMois(JLayeredPane layeredPane)
