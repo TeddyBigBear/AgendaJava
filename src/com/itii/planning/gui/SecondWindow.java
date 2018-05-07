@@ -14,7 +14,8 @@ import javax.swing.JTextPane;
 
 /**
  * 
- * @author L�a - Th�odore - Groupe E TODO Fill javadoc
+ * @author L�a - Th�odore - Groupe E 
+ * TODO Fill javadoc
  */
 public class SecondWindow extends JFrame
 {
@@ -36,6 +37,8 @@ public class SecondWindow extends JFrame
         createPanel();
         //createCalendar();
         initialize();
+        //TODO ne pas ouvrir la fenetre au demarage
+        //TODO ne pas fermer l'application si on ferme la fenetre
   
     }
 
