@@ -14,8 +14,7 @@ import javax.swing.JTextPane;
 
 /**
  * 
- * @author Lï¿½a - Thï¿½odore - Groupe E 
- * TODO Fill javadoc
+ * @author Lï¿½a - Thï¿½odore - Groupe E TODO Fill javadoc
  */
 public class SecondWindow extends JFrame
 {
@@ -37,8 +36,6 @@ public class SecondWindow extends JFrame
         createPanel();
         //createCalendar();
         initialize();
-        //TODO ne pas ouvrir la fenetre au demarage
-        //TODO ne pas fermer l'application si on ferme la fenetre
   
     }
 
@@ -65,7 +62,7 @@ public class SecondWindow extends JFrame
         JTextPane label=new JTextPane();
         label.setBackground(SystemColor.menu);
         label.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label.setText("Nouvelle Tï¿½che : ");
+        label.setText("Nom de la tâche : ");
         label.setBounds(5, 50, 200, 40);
         panel_Left.add(label);
         textField = new JTextField();
@@ -76,7 +73,7 @@ public class SecondWindow extends JFrame
         JTextPane label1=new JTextPane();
         label1.setBackground(SystemColor.menu);
         label1.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label1.setText("Date dï¿½e : ");
+        label1.setText("Date dûe : ");
         label1.setBounds(5, 100, 200, 40);
         panel_Left.add(label1);
         JTextField textField1 = new JTextField();
@@ -87,12 +84,12 @@ public class SecondWindow extends JFrame
         JTextPane label2=new JTextPane();
         label2.setBackground(SystemColor.menu);
         label2.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label2.setText("Dï¿½tails : ");
+        label2.setText("Détails : ");
         label2.setBounds(5, 150, 200, 40);
         panel_Left.add(label2);
         JTextField textField2 = new JTextField();
         textField2.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        textField2.setBounds(200, 150, 400, 350);
+        textField2.setBounds(200, 150, 400, 250);
         panel_Left.add(textField2);
        
         
