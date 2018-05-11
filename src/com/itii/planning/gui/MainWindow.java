@@ -20,7 +20,6 @@ import javax.swing.JButton;
 import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -161,9 +160,10 @@ public class MainWindow extends JFrame
         
         
         //Create and fill Combobox
-        JComboBox<Views> comboBoxView = new JComboBox<Views>(Views.values()); //vews is an enum
+        JComboBox<Views> comboBoxView = new JComboBox<Views>(Views.values());
         comboBoxView.setBounds(419, 11, 205, 20);
         panel_Left.add(comboBoxView);
+        
         
         
         JTextPane txtpnVue = new JTextPane();
@@ -202,7 +202,7 @@ public class MainWindow extends JFrame
                     break;
 
                 default:
-                    layeredPane.moveToFront(panel_Vue_Liste);
+                    layeredPane.moveToFront(panel_Vue_Mois);
                     break;
                     
                 }
@@ -241,13 +241,12 @@ public class MainWindow extends JFrame
                 "Date dûe",
                 "Détails"};
         
-        //Object[][] data = {
-        //        {"TP #1", "04/05/2018", "terminer le TP"}
-        //    };
+        Object[][] data = {
+                {"TP #1", "04/05/2018", "terminer le TP"}
+            };
         
         //JList, list
-        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-        JTable list = new JTable(tableModel);
+        JTable list = new JTable(data, columnNames);
         
         //list properties
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -269,21 +268,9 @@ public class MainWindow extends JFrame
     private void rightPanelButtonFill(JPanel panel_Button)
     {
         JButton btnCreate = new JButton("Créer");
-        btnCreate.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent clickedButton) {
-				
-			}
-        	
-        });
         panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
-        btnCreate.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent clickedButton) {
-				
-			}
-        	
-        });
         panel_Button.add(btnEdit);
         
         JButton btnMark = new JButton("Marquer");
