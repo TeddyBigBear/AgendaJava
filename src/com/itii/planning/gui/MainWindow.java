@@ -26,13 +26,14 @@ import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
 
 /**
  * 
- * @author Léa - Théodore - Groupe E 
+ * @author Lï¿½a - Thï¿½odore - Groupe E 
  * TODO Fill javadoc
  */
 public class MainWindow extends JFrame
@@ -237,16 +238,26 @@ public class MainWindow extends JFrame
         panel_Vue_Liste.setBounds(10, 10, 594, 378);
         panel_Vue_Liste.setBackground(Color.blue);
 
-        String[] columnNames = {"Nom de la tâche",
-                "Date dûe",
-                "Détails"};
+        String[] columnNames = {"Nom de la tï¿½che",
+                "Date dï¿½e",
+                "Dï¿½tails"};
         
+        //JList, list
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+        JTable list = new JTable(tableModel);
+
         Object[][] data = {
                 {"TP #1", "04/05/2018", "terminer le TP"}
             };
         
-        //JList, list
-        JTable list = new JTable(data, columnNames);
+        
+        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #1", "04/05/2018", "terminer le TP"});
+        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #2", "04/05/2018", "terminer le TP"});
+        
+        tableModel.removeRow(1);
+        
+        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #3", "04/05/2018", "terminer le TP"});
+
         
         //list properties
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -267,21 +278,46 @@ public class MainWindow extends JFrame
 
     private void rightPanelButtonFill(JPanel panel_Button)
     {
-        JButton btnCreate = new JButton("Créer");
+        JButton btnCreate = new JButton("Crï¿½er");
+        btnCreate.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				
+				
+			}
+        	
+        });
         panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
         panel_Button.add(btnEdit);
         
         JButton btnMark = new JButton("Marquer");
+        btnCreate.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				
+			}
+        	
+        });
         panel_Button.add(btnMark);
         
         JButton btnDuplicate = new JButton("Dupliquer");
+        btnCreate.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				
+			}
+        	
+        });
         panel_Button.add(btnDuplicate);
         
         JButton btnDelete = new JButton("Supprimer");
+        btnCreate.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				
+			}
+        	
+        });
         panel_Button.add(btnDelete);
     }
-    
+
 
 }
