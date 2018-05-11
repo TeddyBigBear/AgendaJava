@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
 import java.awt.Dimension;
