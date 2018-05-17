@@ -32,10 +32,10 @@ import javax.swing.JLayeredPane;
 /**
  * 
  * @author L�a - Th�odore - Groupe E 
- * TODO Fill javadoc
+ * TODO Fill javadoc dffghjklkjhgfd
  */
 public class MainWindow extends JFrame
-{
+{ 
     private static MainWindow instance = null;
     private JTextField textField;
     private static enum Views {Liste, Mois, Semaine}

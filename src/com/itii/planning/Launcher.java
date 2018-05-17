@@ -6,7 +6,7 @@ import com.itii.planning.gui.SecondWindow;
 
 /**
  * 
- * @author L�a
+ * @author L�a//
  *
  */
 public class Launcher

@@ -14,7 +14,7 @@ import javax.swing.JTextPane;
 
 /**
  * 
- * @author L�a - Th�odore - Groupe E TODO Fill javadoc
+ * @author L�a - Th�odore - Groupe E TODO Fill javadocsdfghjkjhgfds
  */
 public class SecondWindow extends JFrame
 {
