@@ -14,7 +14,7 @@ public class Launcher
     public static void main(String[] args)
     {
      SecondWindow.getInstance();
-     MainWindow.getInstance();
+     //MainWindow.getInstance();
 
     }
 }

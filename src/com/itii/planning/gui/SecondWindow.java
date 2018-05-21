@@ -34,7 +34,7 @@ public class SecondWindow extends JFrame
     private SecondWindow()
     {
         createPanel();
-        //createCalendar();
+        createCalendar();
         initialize();
   
     }
@@ -104,9 +104,17 @@ public class SecondWindow extends JFrame
     }
 
 
-  /* private void createCalendar(){
-       CalendarPanel.getCalendar();
+   private void createCalendar(){
+       
+       getContentPane().setLayout(new GridLayout(1,1));
+       JPanel RightPanel=new JPanel();
+       RightPanel.setBounds(200,200, 200,200);
+       RightPanel.add(CalendarPanel.getCalendar());
+       getContentPane().add(RightPanel);
+       
+       
+ 
       
-    }*/
+    }
     
 }
