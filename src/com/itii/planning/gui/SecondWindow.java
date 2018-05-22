@@ -105,17 +105,14 @@ public class SecondWindow extends JFrame
 
 
    private void createCalendar(){
-
-       getContentPane().setLayout(new GridLayout(1,1));
+       getContentPane().setLayout(new GridLayout(2,5));
        JPanel RightPanel=new JPanel();
-       RightPanel.setAlignmentY(Component.RIGHT_ALIGNMENT);
-       RightPanel.setBounds(600,200, 200,200);
+       
+       //RightPanel.setAlignmentY(Component.RIGHT_ALIGNMENT);
+       //RightPanel.setBounds(600,200,200,200);
+       
        RightPanel.add(CalendarPanel.getCalendar());
-       getContentPane().add(RightPanel);
-       
-       
- 
-      
+       getContentPane().add(RightPanel);      
     }
     
 }
