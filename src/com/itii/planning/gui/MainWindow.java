@@ -39,6 +39,7 @@ public class MainWindow extends JFrame
     private static MainWindow instance = null;
     private JTextField textField;
     private static enum Views {Liste, Mois, Semaine}
+    public JTable list = createList();
 
     public static MainWindow getInstance()
     {
@@ -117,7 +118,6 @@ public class MainWindow extends JFrame
         ViewMenu.add(ListAction);
         ViewMenu.add(WeeksAction);
         ViewMenu.add(MonthAction);
-
 
     }
 
@@ -226,6 +226,8 @@ public class MainWindow extends JFrame
         ScrollPane panel_Vue_Semaine = new ScrollPane();
         panel_Vue_Semaine.setBounds(10, 10, 594, 378);
         panel_Vue_Semaine.setBackground(Color.red);
+        
+
         layeredPane.add(panel_Vue_Semaine, new ScrollPane());
         return panel_Vue_Semaine;
     }
@@ -234,13 +236,28 @@ public class MainWindow extends JFrame
     {
         ScrollPane panel_Vue_Liste = new ScrollPane();
         panel_Vue_Liste.setBounds(10, 10, 594, 378);
-        panel_Vue_Liste.setBackground(Color.blue);
 
-        String[] columnNames = {"Nom de la t�che",
+        //JTable list = createList();
+
+        //Add JScrollPane to list   [What I need help with, its not working]
+        JScrollPane listScroller = new JScrollPane(list);
+        listScroller.setPreferredSize(new Dimension(250, 80));
+
+        //Setbounds, add list and repaint frame
+        listScroller.setBounds(25, 25, 100, 100);
+        panel_Vue_Liste.add(listScroller);
+
+        layeredPane.add(panel_Vue_Liste, new ScrollPane());
+        return panel_Vue_Liste;
+    }
+
+	private JTable createList() {
+		String[] columnNames = {"Nom de la t�che",
                 "Date d�e",
                 "D�tails"};
         
         //JList, list
+        //This needs to be an object of the class or i wont be able to use it in other functions
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         JTable list = new JTable(tableModel);
 
@@ -261,58 +278,49 @@ public class MainWindow extends JFrame
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
         list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-
-        //Add JScrollPane to list   [What I need help with, its not working]
-        JScrollPane listScroller = new JScrollPane(list);
-        listScroller.setPreferredSize(new Dimension(250, 80));
-
-        //Setbounds, add list and repaint frame
-        listScroller.setBounds(25, 25, 100, 100);
-        panel_Vue_Liste.add(listScroller);
-
-        layeredPane.add(panel_Vue_Liste, new ScrollPane());
-        return panel_Vue_Liste;
-    }
+		return list;
+	}
 
     private void rightPanelButtonFill(JPanel panel_Button)
     {
-        JButton btnCreate = new JButton("Cr�er");
+        JButton btnCreate = new JButton("Creer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
-				
+				//TODO This is probably where the data about the new task will get retreived
+				SecondWindow.getInstance();
 			}
-        	
         });
         panel_Button.add(btnCreate);
         
         JButton btnEdit = new JButton("Editer");
+        btnEdit.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				SecondWindow.getInstance();
+			}
+        });
         panel_Button.add(btnEdit);
         
         JButton btnMark = new JButton("Marquer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
+				SecondWindow.getInstance();
 			}
-        	
         });
         panel_Button.add(btnMark);
         
         JButton btnDuplicate = new JButton("Dupliquer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
+				SecondWindow.getInstance();
 			}
-        	
         });
         panel_Button.add(btnDuplicate);
         
         JButton btnDelete = new JButton("Supprimer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
+				SecondWindow.getInstance();
 			}
-        	
         });
         panel_Button.add(btnDelete);
     }
