@@ -58,7 +58,7 @@ public class SecondWindow extends JFrame
         this.validate();
         this.repaint();
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }
     

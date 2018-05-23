@@ -24,10 +24,13 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLayeredPane;
+import javax.swing.JList;
 
 /**
  * 
@@ -41,6 +44,7 @@ public class MainWindow extends JFrame
     private static enum Views {Liste, Mois, Semaine}
     public JTable list = createList();
 
+    // TODO Javadoc
     public static MainWindow getInstance()
     {
         if (instance == null)
@@ -146,9 +150,8 @@ public class MainWindow extends JFrame
         rightPanelButtonFill(panel_Button);
         
     }
-    
  
-
+    // TODO Javadoc
     private void fillLeftPanel(JPanel panel_Left)
     {
         //Create textField
@@ -163,20 +166,20 @@ public class MainWindow extends JFrame
         comboBoxView.setBounds(419, 11, 205, 20);
         panel_Left.add(comboBoxView);
         
-        
-        
+        //add the "Vue :" before the combobox
         JTextPane txtpnVue = new JTextPane();
         txtpnVue.setBackground(SystemColor.menu); // TODO Globalize color variable
         txtpnVue.setText("Vue :");
         txtpnVue.setBounds(378, 11, 42, 20);
         panel_Left.add(txtpnVue);
         
+        //Create the layered plane
         JLayeredPane layeredPane = new JLayeredPane();
         layeredPane.setBounds(20, 41, 604, 388);
         panel_Left.add(layeredPane);
         
         
-        
+        //Create and add all three panels
         ScrollPane panel_Vue_Liste = createVueListe(layeredPane);
         ScrollPane panel_Vue_Semaine = createVueSemaine(layeredPane);
         ScrollPane panel_Vue_Mois = createVueMois(layeredPane);
@@ -185,7 +188,13 @@ public class MainWindow extends JFrame
         //This is the default panel
         layeredPane.moveToFront(panel_Vue_Liste);
         
-        comboBoxView.addActionListener(new ActionListener () {
+        addActionToButton(comboBoxView, layeredPane, panel_Vue_Liste, panel_Vue_Semaine, panel_Vue_Mois);
+        
+    }
+
+	private void addActionToButton(JComboBox<Views> comboBoxView, JLayeredPane layeredPane, ScrollPane panel_Vue_Liste,
+			ScrollPane panel_Vue_Semaine, ScrollPane panel_Vue_Mois) {
+		comboBoxView.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent changedcomboboxItem) {
                 
                 switch (comboBoxView.getSelectedIndex())
@@ -194,10 +203,11 @@ public class MainWindow extends JFrame
                     layeredPane.moveToFront(panel_Vue_Liste);
                     break;
                 case 1:
-                    layeredPane.moveToFront(panel_Vue_Semaine);
+                    
+                    layeredPane.moveToFront(panel_Vue_Mois);
                     break;
                 case 2:
-                    layeredPane.moveToFront(panel_Vue_Mois);
+                	layeredPane.moveToFront(panel_Vue_Semaine);
                     break;
 
                 default:
@@ -209,36 +219,42 @@ public class MainWindow extends JFrame
                 layeredPane.repaint();
             }
         });
-        
-    }
+	}
 
+    // TODO Javadoc
     private ScrollPane createVueMois(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Mois = new ScrollPane();
         panel_Vue_Mois.setBounds(10, 10, 594, 378);
         panel_Vue_Mois.setBackground(Color.black);
+        
+        JList<Object> list =  new JList<Object>();
+        JScrollPane sp = new JScrollPane(list);
+
+        list.setPreferredSize(new Dimension(200, 200));
+        
+        panel_Vue_Mois.add(list, new JScrollPane());
         layeredPane.add(panel_Vue_Mois, new ScrollPane());
         return panel_Vue_Mois;
     }
 
+    // TODO Javadoc
     private ScrollPane createVueSemaine(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Semaine = new ScrollPane();
         panel_Vue_Semaine.setBounds(10, 10, 594, 378);
         panel_Vue_Semaine.setBackground(Color.red);
-        
 
         layeredPane.add(panel_Vue_Semaine, new ScrollPane());
         return panel_Vue_Semaine;
     }
 
+    // TODO Javadoc
     private ScrollPane createVueListe(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Liste = new ScrollPane();
         panel_Vue_Liste.setBounds(10, 10, 594, 378);
-
-        //JTable list = createList();
-
+        
         //Add JScrollPane to list   [What I need help with, its not working]
         JScrollPane listScroller = new JScrollPane(list);
         listScroller.setPreferredSize(new Dimension(250, 80));
@@ -251,6 +267,7 @@ public class MainWindow extends JFrame
         return panel_Vue_Liste;
     }
 
+    // TODO Javadoc
 	private JTable createList() {
 		String[] columnNames = {"Nom de la t�che",
                 "Date d�e",
@@ -281,6 +298,7 @@ public class MainWindow extends JFrame
 		return list;
 	}
 
+	// TODO Javadoc
     private void rightPanelButtonFill(JPanel panel_Button)
     {
         JButton btnCreate = new JButton("Creer");
