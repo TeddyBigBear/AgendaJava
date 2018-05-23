@@ -16,7 +16,7 @@ public class CalendarPanel extends Object
     {
     UtilDateModel model = new UtilDateModel();
     Calendar cal = Calendar.getInstance();
-    model.setDate(2018, 05,21);//(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
+    model.setDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_WEEK));
     calendar = new JDatePicker(model,"dd-mm-yy");
     
     }
