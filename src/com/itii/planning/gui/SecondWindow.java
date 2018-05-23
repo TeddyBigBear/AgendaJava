@@ -41,7 +41,7 @@ public class SecondWindow extends JFrame
     
     private SecondWindow()
     {
-        createPanelBis();
+        createPanel();
        // createCalendar();
         initialize();
   
@@ -62,33 +62,32 @@ public class SecondWindow extends JFrame
         
     }
     
-    private void createPanelBis() {
+    private void createPanel() {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         JTextPane label=new JTextPane();
         label.setBackground(SystemColor.menu);
         label.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label.setBackground(Color.WHITE);
         label.setText("Nom de la tâche : ");
         add(label);
         JTextField textField = new JTextField();
-        textField.setBackground(Color.CYAN);
+        textField.setBackground(SystemColor.menu);
         textField.setPreferredSize(new Dimension(335,40));
         textField.setFont(new Font("Sylfaen", Font.PLAIN,22));
         add(textField);
         
         JTextPane label2=new JTextPane();
-        label2.setBackground(Color.RED);
+        label2.setBackground(SystemColor.menu);
         label2.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label2.setPreferredSize(new Dimension(90,250));
         label2.setText("Détails : ");
         add(label2);
         JTextArea textArea = new JTextArea();
-        textArea.setBackground(Color.CYAN);
+        textArea.setBackground(Color.WHITE);
         textArea.setPreferredSize(new Dimension(418,250));
         add(textArea);
         
         JTextPane label3=new JTextPane();
-        label3.setBackground(Color.YELLOW);
+        label3.setBackground(SystemColor.menu);
         label3.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label3.setPreferredSize(new Dimension(110,40));
         label3.setText("Date dûe : ");
@@ -97,19 +96,19 @@ public class SecondWindow extends JFrame
         add(calendar);
         
         JTextPane label4=new JTextPane();
-        label4.setBackground(Color.PINK);
+        label4.setBackground(SystemColor.menu);
         label4.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label4.setPreferredSize(new Dimension(200,40));
         label4.setText("");
         add(label4);
         JTextPane label5=new JTextPane();
-        label5.setBackground(Color.PINK);
+        label5.setBackground(SystemColor.menu);
         label5.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label5.setPreferredSize(new Dimension(600,40));
         label5.setText("");
         add(label5);
         JTextPane label6=new JTextPane();
-        label6.setBackground(Color.PINK);
+        label6.setBackground(SystemColor.menu);
         label6.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label6.setPreferredSize(new Dimension(150,40));
         label6.setText("");
@@ -121,69 +120,6 @@ public class SecondWindow extends JFrame
         btnOk.setPreferredSize(new Dimension(100,40));
         add(btnOk);        
 
-        
-        
-    }
-    private void createPanel() {
-        getContentPane().setLayout(new GridLayout(1,1));
-        JPanel panel_Left = new JPanel();
-        JTextPane label=new JTextPane();
-        label.setBackground(SystemColor.menu);
-        label.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label.setText("Nom de la tâche : ");
-        label.setBounds(5, 50, 200, 40);
-        panel_Left.add(label);
-        textField = new JTextField();
-        textField.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        textField.setBounds(200, 50, 200, 40);
-        panel_Left.add(textField);
-        
-        JTextPane label2=new JTextPane();
-        label2.setBackground(SystemColor.menu);
-        label2.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        label2.setText("Détails : ");
-        label2.setBounds(5, 100, 200, 40);
-        panel_Left.add(label2);
-        JTextField textField2 = new JTextField();
-        textField2.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        textField2.setBounds(200, 100, 400, 250);
-        panel_Left.add(textField2);
-       
-        
-        panel_Left.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel_Left.setLayout(null);
-        textField = new JTextField();
-        textField.setFont(new Font("Sylfaen", Font.PLAIN,22));
-        textField.setBounds(200, 50, 400, 40);
-        panel_Left.add(textField);
-        panel_Left.revalidate();
-        
-        getContentPane().add(panel_Left);
-    }
-
-
-   private void createCalendar(){
-       getContentPane().setLayout(new GridLayout(1,1));
-       JPanel RightPanel=new JPanel();
-       RightPanel.setSize(200,20);
-       
-      RightPanel.setBackground(Color.RED);
-       JTextPane label1=new JTextPane();
-       label1.setBackground(SystemColor.menu);
-       label1.setFont(new Font("Sylfaen", Font.PLAIN,22));
-       label1.setText("Date dûe : ");
-       label1.setBounds(10, 50, 200, 40);
-       RightPanel.add(label1);
-       //RightPanel.setLayout(null);
-       RightPanel.add(CalendarPanel.getCalendar());
-
-       
-       
-       RightPanel.setAlignmentY(Component.RIGHT_ALIGNMENT);
-       RightPanel.setBounds(600,200,200,200);
-       
-       
-       getContentPane().add(RightPanel);      
     }
     
 }
