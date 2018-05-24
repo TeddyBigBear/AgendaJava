@@ -298,7 +298,6 @@ public class MainWindow extends JFrame
 		return list;
 	}
 
-
 	// TODO Javadoc
     private void rightPanelButtonFill(JPanel panel_Button)
     {
@@ -320,25 +319,29 @@ public class MainWindow extends JFrame
         panel_Button.add(btnEdit);
         
         JButton btnMark = new JButton("Marquer");
-        btnCreate.addActionListener(new ActionListener () {
+        btnMark.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				
 			}
         });
         panel_Button.add(btnMark);
         
         JButton btnDuplicate = new JButton("Dupliquer");
-        btnCreate.addActionListener(new ActionListener () {
+        btnDuplicate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				//basicaly take the data and add the said data
+				//as of now i only add data
+				((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #2", "04/05/2018", "terminer le TP"}); 
 			}
         });
         panel_Button.add(btnDuplicate);
         
         JButton btnDelete = new JButton("Supprimer");
-        btnCreate.addActionListener(new ActionListener () {
+        btnDelete.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				//tableModel.removeRow(1);
+				//tableModel.removeRow();
+				//list.remove(list.getSelectedRow());
+				list.remove(1);
 			}
         });
         panel_Button.add(btnDelete);
