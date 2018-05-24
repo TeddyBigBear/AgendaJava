@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -30,8 +31,6 @@ import org.jdatepicker.JDatePicker;
 public class SecondWindow extends JFrame
 {
     private static SecondWindow instance = null;
-    private JTextField textField;
-
     public static SecondWindow getInstance()
     {
 
@@ -45,7 +44,6 @@ public class SecondWindow extends JFrame
     private SecondWindow()
     {
         createPanel();
-       // createCalendar();
         initialize();
   
     }
@@ -65,6 +63,7 @@ public class SecondWindow extends JFrame
         //TODO make sure the second window can be reopened
     }
     
+    //TODO Javadoc
     private void createPanel() {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         JTextPane label=new JTextPane();
@@ -127,7 +126,7 @@ public class SecondWindow extends JFrame
         JButton btnCancel = new JButton("Annuler");
         btnCancel.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
+				dispose();
 			}
         });
         btnCancel.setPreferredSize(new Dimension(100,40));
