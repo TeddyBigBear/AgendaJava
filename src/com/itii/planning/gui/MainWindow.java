@@ -96,18 +96,34 @@ public class MainWindow extends JFrame
         // Create and add simple menu item to one of the drop down menu
         // what is in the "Fichier" menu
         JMenuItem QuitAction = new JMenuItem("Quitter");
-
+        QuitAction.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent clickedButton) {
+                //TODO This is probably where the data about the new task will get retreived
+                dispose();
+            }
+        });
         // what is in the "Edition" menu
         JMenuItem CreateAction = new JMenuItem("Cr�er");
+        CreateAction.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent clickedButton) {
+                //TODO This is probably where the data about the new task will get retreived
+                SecondWindow.getInstance();
+            }
+        });
         JMenuItem EditAction = new JMenuItem("Editer");
+        EditAction.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent clickedButton) {
+                ThirdWindow.getInstance();
+            }
+        });
         JMenuItem MarkAction = new JMenuItem("Marquer");
         JMenuItem DuplicateAction = new JMenuItem("Dupliquer");
         JMenuItem DeleteAction = new JMenuItem("Supprimer");
 
         // what is in the "Vue" menu
-        JMenuItem ListAction = new JMenuItem("Cr�er");
-        JMenuItem WeeksAction = new JMenuItem("Editer");
-        JMenuItem MonthAction = new JMenuItem("Marquer");
+        JMenuItem ListAction = new JMenuItem("Liste");
+        JMenuItem WeeksAction = new JMenuItem("Semaine");
+        JMenuItem MonthAction = new JMenuItem("Mois");
 
         // what is in the "Fichier" menu
         fileMenu.add(QuitAction);
@@ -138,7 +154,7 @@ public class MainWindow extends JFrame
         getContentPane().add(panel_Left, BorderLayout.CENTER);
         panel_Left.setLayout(null);
         
-        //On remplis le panel principal
+        //On remplit le panel principal
         fillLeftPanel(panel_Left);
         
         //On construit le panel de droite
@@ -298,7 +314,7 @@ public class MainWindow extends JFrame
         JButton btnEdit = new JButton("Editer");
         btnEdit.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				ThirdWindow.getInstance();
 			}
         });
         panel_Button.add(btnEdit);
