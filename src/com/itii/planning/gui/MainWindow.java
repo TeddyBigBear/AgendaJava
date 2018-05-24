@@ -70,6 +70,7 @@ public class MainWindow extends JFrame
         this.setVisible(true);
         this.validate();
         this.repaint();
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -277,18 +278,14 @@ public class MainWindow extends JFrame
         //This needs to be an object of the class or i wont be able to use it in other functions
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         JTable list = new JTable(tableModel);
-
+        
+        //This is just an example i need to remove this
         Object[][] data = {
                 {"TP #1", "04/05/2018", "terminer le TP"}
             };
         
         
-        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #1", "04/05/2018", "terminer le TP"});
-        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #2", "04/05/2018", "terminer le TP"});
-        
-        tableModel.removeRow(1);
-        
-        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #3", "04/05/2018", "terminer le TP"});
+        addDataInList(tableModel, list, data);
 
         
         //list properties
@@ -296,6 +293,11 @@ public class MainWindow extends JFrame
         list.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0,Color.BLACK));
         list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		return list;
+	}
+
+	private void addDataInList(DefaultTableModel tableModel, JTable list, Object[][] data) {
+        ((DefaultTableModel) list.getModel()).addRow(data);        
+        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #3", "04/05/2018", "terminer le TP"});
 	}
 
 	// TODO Javadoc
@@ -337,7 +339,7 @@ public class MainWindow extends JFrame
         JButton btnDelete = new JButton("Supprimer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				//tableModel.removeRow(1);
 			}
         });
         panel_Button.add(btnDelete);
