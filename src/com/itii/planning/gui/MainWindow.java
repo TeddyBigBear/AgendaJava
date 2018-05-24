@@ -107,13 +107,13 @@ public class MainWindow extends JFrame
         CreateAction.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent clickedButton) {
                 //TODO This is probably where the data about the new task will get retreived
-                SecondWindow.getInstance();
+                SecondWindow.getInstance().setVisible(true);
             }
         });
         JMenuItem EditAction = new JMenuItem("Editer");
         EditAction.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent clickedButton) {
-                ThirdWindow.getInstance();
+                ThirdWindow.getInstance().setVisible(true);
             }
         });
         JMenuItem MarkAction = new JMenuItem("Marquer");
@@ -305,8 +305,8 @@ public class MainWindow extends JFrame
         JButton btnCreate = new JButton("Creer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				//TODO This is probably where the data about the new task will get retreived
-				SecondWindow.getInstance();
+				//TODO This is probably where the data about the new task will get retreived	    
+				SecondWindow.getInstance().setVisible(true);
 			}
         });
         panel_Button.add(btnCreate);
@@ -314,7 +314,7 @@ public class MainWindow extends JFrame
         JButton btnEdit = new JButton("Editer");
         btnEdit.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				ThirdWindow.getInstance();
+				ThirdWindow.getInstance().setVisible(true);
 			}
         });
         panel_Button.add(btnEdit);

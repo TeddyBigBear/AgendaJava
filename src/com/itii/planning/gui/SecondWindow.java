@@ -126,7 +126,8 @@ public class SecondWindow extends JFrame
         JButton btnCancel = new JButton("Annuler");
         btnCancel.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				dispose();
+			    setVisible(false);
+			    //dispose();
 			}
         });
         btnCancel.setPreferredSize(new Dimension(100,40));

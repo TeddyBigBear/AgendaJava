@@ -126,6 +126,7 @@ public class ThirdWindow extends JFrame
         JButton btnCancel = new JButton("Annuler");
         btnCancel.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
+			    setVisible(false);
 				dispose();
 			}
         });
