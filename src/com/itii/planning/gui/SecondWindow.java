@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 import org.jdatepicker.JDatePicker;
 
@@ -59,7 +62,7 @@ public class SecondWindow extends JFrame
         this.repaint();
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
+        //TODO make sure the second window can be reopened
     }
     
     private void createPanel() {
@@ -68,6 +71,7 @@ public class SecondWindow extends JFrame
         label.setBackground(SystemColor.menu);
         label.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label.setText("Nom de la tâche : ");
+        label.setEditable(false);
         add(label);
         JTextField textField = new JTextField();
         textField.setBackground(SystemColor.menu);
@@ -80,6 +84,7 @@ public class SecondWindow extends JFrame
         label2.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label2.setPreferredSize(new Dimension(90,250));
         label2.setText("Détails : ");
+        label2.setEditable(false);
         add(label2);
         JTextArea textArea = new JTextArea();
         textArea.setBackground(Color.WHITE);
@@ -91,7 +96,10 @@ public class SecondWindow extends JFrame
         label3.setFont(new Font("Sylfaen", Font.PLAIN,22));
         label3.setPreferredSize(new Dimension(110,40));
         label3.setText("Date dûe : ");
+        label3.setEditable(false);
         add(label3);
+        
+        
         JDatePicker calendar = CalendarPanel.getCalendar();
         add(calendar);
         
@@ -113,10 +121,30 @@ public class SecondWindow extends JFrame
         label6.setPreferredSize(new Dimension(150,40));
         label6.setEditable(false);
         add(label6);
+        
+       
+        //The buttons
         JButton btnCancel = new JButton("Annuler");
+        btnCancel.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				
+			}
+        });
         btnCancel.setPreferredSize(new Dimension(100,40));
         add(btnCancel);
+        
         JButton btnOk = new JButton("OK");
+        btnOk.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent clickedButton) {
+				((DefaultTableModel) MainWindow.list.getModel()).addRow(
+						new Object[] {
+								textField.getText(), 
+								calendar.getFormattedTextField().getText(), 
+								textArea.getText()
+								}
+						);
+			}
+        });
         btnOk.setPreferredSize(new Dimension(100,40));
         add(btnOk);        
 

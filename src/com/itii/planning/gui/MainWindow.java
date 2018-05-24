@@ -42,7 +42,7 @@ public class MainWindow extends JFrame
     private static MainWindow instance = null;
     private JTextField textField;
     private static enum Views {Liste, Mois, Semaine}
-    public JTable list = createList();
+    public static JTable list = createList();
 
     // TODO Javadoc
     public static MainWindow getInstance()
@@ -140,7 +140,6 @@ public class MainWindow extends JFrame
         
         //On remplis le panel principal
         fillLeftPanel(panel_Left);
-
         
         //On construit le panel de droite
         JPanel panel_Button = new JPanel();
@@ -230,8 +229,6 @@ public class MainWindow extends JFrame
         panel_Vue_Mois.setBackground(Color.black);
         
         JList<Object> list =  new JList<Object>();
-        JScrollPane sp = new JScrollPane(list);
-
         list.setPreferredSize(new Dimension(200, 200));
         
         panel_Vue_Mois.add(list, new JScrollPane());
@@ -269,24 +266,14 @@ public class MainWindow extends JFrame
     }
 
     // TODO Javadoc
-	private JTable createList() {
+	private static JTable createList() {
 		String[] columnNames = {"Nom de la t�che",
                 "Date d�e",
                 "D�tails"};
         
         //JList, list
-        //This needs to be an object of the class or i wont be able to use it in other functions
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         JTable list = new JTable(tableModel);
-        
-        //This is just an example i need to remove this
-        Object[][] data = {
-                {"TP #1", "04/05/2018", "terminer le TP"}
-            };
-        
-        
-        addDataInList(tableModel, list, data);
-
         
         //list properties
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -295,10 +282,6 @@ public class MainWindow extends JFrame
 		return list;
 	}
 
-	private void addDataInList(DefaultTableModel tableModel, JTable list, Object[][] data) {
-        ((DefaultTableModel) list.getModel()).addRow(data);        
-        ((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #3", "04/05/2018", "terminer le TP"});
-	}
 
 	// TODO Javadoc
     private void rightPanelButtonFill(JPanel panel_Button)
