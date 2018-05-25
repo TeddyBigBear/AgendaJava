@@ -339,7 +339,8 @@ public class MainWindow extends JFrame
 			public void actionPerformed(ActionEvent clickedButton) {
 				//tableModel.removeRow();
 				//list.remove(list.getSelectedRow());
-				list.remove(1);
+				//list.remove(1);
+			    ((DefaultTableModel) list.getModel()).removeRow(1);
 			}
         });
         panel_Button.add(btnDelete);
