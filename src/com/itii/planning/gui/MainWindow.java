@@ -303,7 +303,7 @@ public class MainWindow extends JFrame
         JButton btnCreate = new JButton("Creer");
         btnCreate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				SecondWindow.getInstance().setVisible(true);  
 			}
         });
         panel_Button.add(btnCreate);
@@ -311,7 +311,7 @@ public class MainWindow extends JFrame
         JButton btnEdit = new JButton("Editer");
         btnEdit.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				SecondWindow.getInstance();
+				SecondWindow.getInstance().setVisible(true);
 			}
         });
         panel_Button.add(btnEdit);

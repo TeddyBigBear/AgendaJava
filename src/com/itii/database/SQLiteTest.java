@@ -30,22 +30,22 @@ public class SQLiteTest
         {
             // Chargement du Driver. Stockage des données dans le fichier
             // planning.db
-            connection = DriverManager
-                    .getConnection("jdbc:sqlite:database/planning.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:database/planning.db");
             // Objet permettant l'exécution des requêtes SQL
             statement = connection.createStatement();
             // Timeout en cas de non-réponse de la base de données.
             statement.setQueryTimeout(15);
-            //statement.execute("drop table " + TABLE_NAME);
+            statement.execute("drop table " + TABLE_NAME);
             // Création de la table
-            statement.executeUpdate("create table " + TABLE_NAME + " ( "
+           statement.executeUpdate("create table " + TABLE_NAME + " ( "
                     + FIELD_ID + " integer primary key autoincrement, " // Primary
                                                                         // key
                     + FIELD_NAME + " string, " // Name
                     + FIELD_DATE + " text, " // Details
                     + FIELD_DETAILS + " text, " // date as ISO8601 strings
                                                 // ("YYYY-MM-DD HH:MM:SS.SSS").
-                    + FIELD_STATE + " boolean " + " )"); // marquée
+                    + FIELD_STATE + " boolean " + " )"); // marquée*/
+
             System.out.println("table \"" + TABLE_NAME + "\" créée ");
         } catch (SQLException e)
         {

@@ -127,7 +127,7 @@ public class SecondWindow extends JFrame
         btnCancel.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
 			    setVisible(false);
-			    //dispose();
+			    dispose();
 			}
         });
         btnCancel.setPreferredSize(new Dimension(100,40));
@@ -143,6 +143,8 @@ public class SecondWindow extends JFrame
 								textArea.getText()
 								}
 						);
+				setVisible(false);
+                dispose();
 			}
         });
         btnOk.setPreferredSize(new Dimension(100,40));
