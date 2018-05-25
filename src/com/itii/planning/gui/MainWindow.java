@@ -29,6 +29,8 @@ import java.awt.GridBagLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
 
@@ -327,9 +329,11 @@ public class MainWindow extends JFrame
         JButton btnDuplicate = new JButton("Dupliquer");
         btnDuplicate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				//basicaly take the data and add the said data
-				//as of now i only add data
-				((DefaultTableModel) list.getModel()).addRow(new Object[] {"TP #2", "04/05/2018", "terminer le TP"}); 
+				//basicaly take the data and add the said data as of now i only add data
+				((DefaultTableModel) list.getModel()).addRow(getRowContentToDuplicate()); 
+//				getValueAt(int row, int column)
+//				getSelectedRow()
+//				getSelectedColumn()
 			}
         });
         panel_Button.add(btnDuplicate);
@@ -337,13 +341,19 @@ public class MainWindow extends JFrame
         JButton btnDelete = new JButton("Supprimer");
         btnDelete.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				//tableModel.removeRow();
-				//list.remove(list.getSelectedRow());
-				//list.remove(1);
-			    ((DefaultTableModel) list.getModel()).removeRow(1);
+			    ((DefaultTableModel) list.getModel()).removeRow(list.getSelectedRow());
 			}
         });
         panel_Button.add(btnDelete);
+    }
+    private Object[] getRowContentToDuplicate() {
+        String Nom = (String) list.getValueAt(list.getSelectedRow(), 0);
+        String Date = (String) list.getValueAt(list.getSelectedRow(), 1);
+        String detail = (String) list.getValueAt(list.getSelectedRow(), 2);
+                
+        Object[] newRow = new Object[] {Nom, Date, detail};
+        
+        return newRow;
     }
 
 
