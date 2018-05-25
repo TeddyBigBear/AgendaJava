@@ -36,7 +36,7 @@ public class SQLiteTest
             statement = connection.createStatement();
             // Timeout en cas de non-réponse de la base de données.
             statement.setQueryTimeout(15);
-            statement.execute("drop table " + TABLE_NAME);
+            //statement.execute("drop table " + TABLE_NAME);
             // Création de la table
             statement.executeUpdate("create table " + TABLE_NAME + " ( "
                     + FIELD_ID + " integer primary key autoincrement, " // Primary
