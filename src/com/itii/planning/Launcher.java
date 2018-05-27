@@ -6,14 +6,13 @@ import com.itii.planning.gui.MainWindow;
 
 /**
  * 
- * @author L�a//
- *
+ * @author Lea
+ * At launch creates the main window
  */
 public class Launcher
 {
     public static void main(String[] args)
     {
-     //SecondWindow.getInstance();
      MainWindow.getInstance();
 
     }
