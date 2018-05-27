@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="jcalendar-0.8.1.jar" sourcepath="jcalendar-0.8.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-lang3-3.7-src.zip"/>
 	<classpathentry kind="lib" path="lib/jdatepicker-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.21.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
