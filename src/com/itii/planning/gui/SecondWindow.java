@@ -1,20 +1,13 @@
 package com.itii.planning.gui;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.SystemColor;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -28,11 +21,18 @@ import com.itii.database.SQLiteTest;
 
 /**
  * 
- * @author L�a - Th�odore - Groupe E TODO Fill javadocsdfghjkjhgfds
+ * @author Lea - Theodore - Groupe E
+ * 
  */
 public class SecondWindow extends JFrame
 {
     private static SecondWindow instance = null;
+    
+    /*
+     * getInstance checks if an instance of the SecondWindow exist if not returns one
+     * param : 
+     * returns : a single instance of the second window
+     */
     public static SecondWindow getInstance()
     {
 
@@ -43,6 +43,11 @@ public class SecondWindow extends JFrame
         return instance;
     }
     
+    /*
+     * SecondWindow calls the necessary methods to create the second window
+     * param : 
+     * returns : 
+     */
     private SecondWindow()
     {
         createPanel();
@@ -50,7 +55,11 @@ public class SecondWindow extends JFrame
   
     }
 
-    // TODO Javadoc
+    /*
+     * initialize the second window with necessary parameters
+     * param : 
+     * returns : 
+     */
     private void initialize()
     {
 
@@ -62,10 +71,14 @@ public class SecondWindow extends JFrame
         this.repaint();
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //TODO make sure the second window can be reopened
     }
     
-    //TODO Javadoc
+    /*
+     * createPanel creates the content of the single panel that contains Text fields to create a new task
+     * It also contains the calendar that allows the user to select a date on a GUI
+     * param : 
+     * returns : 
+     */
     private void createPanel() {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         JTextPane label=new JTextPane();
