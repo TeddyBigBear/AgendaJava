@@ -51,7 +51,11 @@ public class MainWindow extends JFrame
     private static enum Views {Liste, Mois, Semaine}
     public static JTable list = createList();
 
-    // TODO Javadoc
+    /*
+     * MainWindow calls the necessary methods to create the main windows
+     * param : 
+     * returns : an instan
+     */
     public static MainWindow getInstance()
     {
         if (instance == null)
@@ -61,7 +65,11 @@ public class MainWindow extends JFrame
         return instance;
     }
 
-    // TODO JavaDoc
+    /*
+     * MainWindow calls the necessary methods to create the main windows
+     * param : 
+     * returns : 
+     */
     private MainWindow()
     {
         CreatePanels();
@@ -69,7 +77,11 @@ public class MainWindow extends JFrame
         initialize();
     }
 
-    // TODO Javadoc
+    /*
+     * initialize the database and main window with necessary parameters
+     * param : 
+     * returns : 
+     */
     private void initialize()
     {
         this.setSize(737, 500);
@@ -82,7 +94,11 @@ public class MainWindow extends JFrame
         SQLiteTest.createDatabase();
     }
 
-    // TODO javadoc
+    /*
+     * CreateMenuBar sets the menu content in the menu bar and adds the corresponding actions to the menu options
+     * param : 
+     * returns : 
+     */
     private void CreateMenuBar()
     {
         setTitle("Menu");
@@ -149,7 +165,11 @@ public class MainWindow extends JFrame
 
     }
 
-    // TODO Javadoc
+    /*
+     * CreatePanels sets the layout of the content pane and divides it into a center and east section
+     * param : 
+     * returns : 
+     */
     private void CreatePanels()
     {
         
@@ -174,7 +194,11 @@ public class MainWindow extends JFrame
         
     }
  
-    // TODO Javadoc
+    /*
+     * fillLeftPanel fills the left panel with all 3 views in a layered panel, a combobox and a textpane
+     * param : JPanel
+     * returns : 
+     */
     private void fillLeftPanel(JPanel panel_Left)
     {
         //Create textField
@@ -215,6 +239,11 @@ public class MainWindow extends JFrame
         
     }
 
+    /*
+     * addActionToButton adds action to the combobox moving to the front the selected panel
+     * param : JComboBox<Views> , JLayeredPane , ScrollPane , ScrollPane , ScrollPane
+     * returns : 
+     */
 	private void addActionToButton(JComboBox<Views> comboBoxView, JLayeredPane layeredPane, ScrollPane panel_Vue_Liste,
 			ScrollPane panel_Vue_Semaine, ScrollPane panel_Vue_Mois) {
 		comboBoxView.addActionListener(new ActionListener () {
@@ -244,7 +273,11 @@ public class MainWindow extends JFrame
         });
 	}
 
-    // TODO Javadoc
+	/*
+     * createVueSemaine creates the Month view
+     * param : JLayeredPane
+     * returns : JScrollPane
+     */
     private ScrollPane createVueMois(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Mois = new ScrollPane();
@@ -259,7 +292,11 @@ public class MainWindow extends JFrame
         return panel_Vue_Mois;
     }
 
-    // TODO Javadoc
+    /*
+     * createVueSemaine creates the weeks view
+     * param : JLayeredPane
+     * returns : JScrollPane
+     */
     private ScrollPane createVueSemaine(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Semaine = new ScrollPane();
@@ -270,7 +307,11 @@ public class MainWindow extends JFrame
         return panel_Vue_Semaine;
     }
 
-    // TODO Javadoc
+    /*
+     * createVueListe creates the list view
+     * param : JLayeredPane
+     * returns : JScrollPane
+     */
     private ScrollPane createVueListe(JLayeredPane layeredPane)
     {
         ScrollPane panel_Vue_Liste = new ScrollPane();
