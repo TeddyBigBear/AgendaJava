@@ -21,18 +21,13 @@ import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.DefaultHighlighter;
-
 import com.itii.database.SQLiteTest;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
@@ -41,8 +36,8 @@ import com.itii.database.SQLiteTest;
 
 /**
  * 
- * @author L�a - Th�odore - Groupe E 
- * TODO Fill javadoc dffghjklkjhgfd
+ * @author Lea - Theodore - Groupe E 
+ * Main window is the class containing everything related to the main window of the application
  */
 public class MainWindow extends JFrame
 { 
@@ -52,9 +47,9 @@ public class MainWindow extends JFrame
     public static JTable list = createList();
 
     /*
-     * MainWindow calls the necessary methods to create the main windows
+     * getInstance checks if an instance of the mainwindow exist if not returns one
      * param : 
-     * returns : an instan
+     * returns : a single instance of the main window
      */
     public static MainWindow getInstance()
     {
