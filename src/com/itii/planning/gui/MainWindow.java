@@ -22,6 +22,8 @@ import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
+import com.itii.database.SQLiteTest;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -33,6 +35,8 @@ import java.util.Vector;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JList;
+import com.itii.database.SQLiteTest;
+
 
 /**
  * 
@@ -74,6 +78,7 @@ public class MainWindow extends JFrame
         this.repaint();
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        SQLiteTest.createDatabase();
     }
 
     // TODO javadoc

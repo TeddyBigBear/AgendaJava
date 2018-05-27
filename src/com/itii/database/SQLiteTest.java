@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.table.DefaultTableModel;
+
+import com.itii.planning.gui.MainWindow;
+
 /**
  * Test de connection / exécution de requêtes SQL / déconncetion de SQLite
  * 
@@ -21,7 +25,7 @@ public class SQLiteTest
     private static final String FIELD_DETAILS = "details";
     private static final String FIELD_STATE = "state";
 
-    public static void main(String[] args)
+    public static void createDatabase()
     {
         Connection connection = null;
         Statement statement = null;
@@ -84,6 +88,14 @@ public class SQLiteTest
                 System.out.print(" ; details = " + rs.getString(FIELD_DETAILS));
                 System.out.println(
                         " ; etat = " + rs.getString(FIELD_STATE) + "]");
+                
+                ((DefaultTableModel) MainWindow.list.getModel()).addRow(
+                        new Object[] {
+                                rs.getString(FIELD_NAME),
+                                rs.getString(FIELD_DATE), 
+                                rs.getString(FIELD_DETAILS)
+                                }
+                        );
             }
         } catch (SQLException e)
         {
@@ -103,6 +115,40 @@ public class SQLiteTest
                 System.out.println(
                         "erreur lors de la fermeture de la connection");
             }
+        }
+    }
+    
+    
+    public static void InsertInDatabase(String Name, String Time, String details) {
+        Connection connection = null;
+        try
+        {
+            connection = DriverManager.getConnection("jdbc:sqlite:database/planning.db");
+        } catch (SQLException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        try
+        {
+            PreparedStatement stmt = connection.prepareStatement(
+                    "insert into " + TABLE_NAME + " ( " + FIELD_NAME + ","
+                            + FIELD_DATE + "," + FIELD_DETAILS + ","
+                            + FIELD_STATE + " ) " + "values ( ?, ?, ?, ?) ");
+            stmt.setString(1, "TP #1");
+            stmt.setString(2, "2018-04-20 12:00");
+            stmt.setString(3, "penser à rendre le tp");
+            stmt.setString(1, Name);
+            stmt.setString(2,Time);
+            stmt.setString(3, details);
+            stmt.setString(4, "0");
+            stmt.executeUpdate();
+            System.out.println("insertion d'une nouvelle entrée dans la table");
+        } catch (SQLException e)
+        {
+            System.out.println(
+                    "problème dans l'insertion d'une nouvelle enrée dans la table.");
         }
     }
 }

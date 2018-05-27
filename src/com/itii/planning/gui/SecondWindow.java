@@ -22,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
 
 import org.jdatepicker.JDatePicker;
 
+import com.itii.database.SQLiteTest;
+
 //import de.wannawork.jcalendar.*;
 
 /**
@@ -141,8 +143,12 @@ public class SecondWindow extends JFrame
 								textField.getText(), 
 								calendar.getFormattedTextField().getText(), 
 								textArea.getText()
+								
 								}
 						);
+				
+				SQLiteTest.InsertInDatabase(textField.getText(),
+                        calendar.getFormattedTextField().getText(),textArea.getText());
 				setVisible(false);
                 dispose();
 			}
