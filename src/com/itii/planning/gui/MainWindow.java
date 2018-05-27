@@ -21,6 +21,7 @@ import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultHighlighter;
 
 import com.itii.database.SQLiteTest;
 
@@ -287,7 +288,12 @@ public class MainWindow extends JFrame
         return panel_Vue_Liste;
     }
 
-    // TODO Javadoc
+    /*
+     * createList creates the content of the panel List
+     * this is where the column names are defined
+     * Param :
+     * Returns : empty JTable
+     */
 	private static JTable createList() {
 		String[] columnNames = {"Nom de la t�che",
                 "Date d�e",
@@ -304,7 +310,12 @@ public class MainWindow extends JFrame
 		return list;
 	}
 
-	// TODO Javadoc
+	/*
+	 * rightPanelButtonFill adds buttons to the left panel
+	 * Action of each button is also defined here
+	 * Param : JPanel
+	 * Returns : void
+	 */
     private void rightPanelButtonFill(JPanel panel_Button)
     {
         JButton btnCreate = new JButton("Creer");
@@ -326,7 +337,7 @@ public class MainWindow extends JFrame
         JButton btnMark = new JButton("Marquer");
         btnMark.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
-				
+			    
 			}
         });
         panel_Button.add(btnMark);
@@ -335,10 +346,7 @@ public class MainWindow extends JFrame
         btnDuplicate.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent clickedButton) {
 				//basicaly take the data and add the said data as of now i only add data
-				((DefaultTableModel) list.getModel()).addRow(getRowContentToDuplicate()); 
-//				getValueAt(int row, int column)
-//				getSelectedRow()
-//				getSelectedColumn()
+				((DefaultTableModel) list.getModel()).addRow(getRowContentToDuplicate());
 			}
         });
         panel_Button.add(btnDuplicate);
@@ -351,6 +359,12 @@ public class MainWindow extends JFrame
         });
         panel_Button.add(btnDelete);
     }
+    
+    /*
+     * getContentToDuplicate recovers data from selected row and creates new row
+     * Param : 
+     * Returns Object containing Name of task, Date, details
+     */
     private Object[] getRowContentToDuplicate() {
         String Nom = (String) list.getValueAt(list.getSelectedRow(), 0);
         String Date = (String) list.getValueAt(list.getSelectedRow(), 1);
